@@ -7,6 +7,10 @@ Tim pengembang:
 - Rendy Ardhitya Kuncoro
 
 **LANGKAH2 UNTUK IKUT BERKONTRIBUSI MENGEMBANGKAN APLIKASI INI **
-- Clone git
-https://github.com/Bluemorpho61/AplikasiPengelolaanTokoIT.git
+- Clone git dg cara
+
+'''
+git clone https://github.com/Bluemorpho61/AplikasiPengelolaanTokoIT.git
+'''
+
 - Import file sql "toko_barang_it"
