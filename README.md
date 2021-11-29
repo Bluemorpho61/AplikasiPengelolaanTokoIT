@@ -9,8 +9,8 @@ Tim pengembang:
 **LANGKAH2 UNTUK IKUT BERKONTRIBUSI MENGEMBANGKAN APLIKASI INI **
 - Clone git dg cara
 
-'''
+```
 git clone https://github.com/Bluemorpho61/AplikasiPengelolaanTokoIT.git
-'''
+```
 
 - Import file sql "toko_barang_it"
