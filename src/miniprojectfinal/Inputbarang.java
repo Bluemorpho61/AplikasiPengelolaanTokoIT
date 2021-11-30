@@ -2,6 +2,9 @@ package miniprojectfinal;
 
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
@@ -15,9 +18,23 @@ public class Inputbarang extends javax.swing.JFrame {
     public Inputbarang() {
         initComponents();
         load_table();
-        kosong();
+        UpdateCombo();
+       // kosong();
         
     }
+    private void UpdateCombo(){
+    
+        try {
+           Statement statement = (Statement)Konek.getConnection().createStatement();
+            ResultSet res=statement.executeQuery("select nama from tb_supplier");
+            java.sql.Connection conn=(Connection) Config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            while (res.next()) {                
+                jComboBox_suplier.addItem(res.getString("nama"));
+            }
+        } catch (Exception e) {
+        }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,13 +62,13 @@ public class Inputbarang extends javax.swing.JFrame {
         btn_edit = new javax.swing.JButton();
         btn_input = new javax.swing.JButton();
         txt_merek = new javax.swing.JTextField();
-        txt_supplier = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         btn_delete = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         txt_jumlah = new javax.swing.JTextField();
         jtgl = new com.toedter.calendar.JDateChooser();
         btn_clear = new javax.swing.JButton();
+        jComboBox_suplier = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -136,13 +153,6 @@ public class Inputbarang extends javax.swing.JFrame {
         jPanel3.add(btn_input, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 750, 130, 40));
         jPanel3.add(txt_merek, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 320, 30));
 
-        txt_supplier.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_supplierActionPerformed(evt);
-            }
-        });
-        jPanel3.add(txt_supplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 600, 320, 30));
-
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel9.setText("Tgl Masuk Barang");
@@ -175,6 +185,13 @@ public class Inputbarang extends javax.swing.JFrame {
         });
         jPanel3.add(btn_clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 830, 130, 40));
 
+        jComboBox_suplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_suplierActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jComboBox_suplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, 320, 30));
+
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 420, 1010));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
@@ -183,13 +200,13 @@ public class Inputbarang extends javax.swing.JFrame {
         jTable1.setBackground(new java.awt.Color(255, 153, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nama", "Title 2", "Title 3", "Title 4"
+                "ID Barang", "Nama Barang", "Merek Barang", "Harga", "Jumlah", "Supplier", "Tanggal Masuk"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -208,7 +225,7 @@ public class Inputbarang extends javax.swing.JFrame {
 
     private void btn_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inputActionPerformed
         // TODO add your handling code here:
-      try{
+     /* try{
           DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
           String sql = "INSERT INTO tb_barang Values('"+txt_id.getText()+"','"
                   +txt_nama.getText()+"','"+txt_tipe.getText()+"','"
@@ -223,11 +240,11 @@ public class Inputbarang extends javax.swing.JFrame {
     
     } load_table();
         kosong();                 
-
+*/
     }//GEN-LAST:event_btn_inputActionPerformed
 
     private void btn_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editActionPerformed
-  try {
+  /*try {
       DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
          String sql = "UPDATE tb_barang SET nama ='"+txt_nama.getText()
                 +"', tipe_barang = '"+txt_tipe.getText()+"', merek_barang = '"
@@ -242,12 +259,12 @@ public class Inputbarang extends javax.swing.JFrame {
     } catch (Exception e) {
         JOptionPane.showMessageDialog(null, "perubahan Data Gagal" + e.getMessage());   
     }  load_table();
-        kosong();
+        kosong();*/
     }//GEN-LAST:event_btn_editActionPerformed
 
     private void btn_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteActionPerformed
         // TODO add your handling code here:
-        try {
+        /*try {
         String sql = "DELETE FROM tb_barang where id_barang='"+txt_id.getText()+"'";
           java.sql.Connection conn=(Connection)Config.configDB();
           java.sql.PreparedStatement pst= conn.prepareStatement(sql);
@@ -257,11 +274,11 @@ public class Inputbarang extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, e.getMessage());
     
     }    load_table();
-        kosong();
+        kosong();*/
     }//GEN-LAST:event_btn_deleteActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-      DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+      /*DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         int baris = jTable1.rowAtPoint(evt.getPoint());
         String id_barang = jTable1.getValueAt(baris, 0).toString();
         txt_id.setText(id_barang);
@@ -299,11 +316,11 @@ public class Inputbarang extends javax.swing.JFrame {
             txt_supplier.setText("");
         } else {
             txt_supplier.setText(jTable1.getValueAt(baris, 7).toString());    
-        }                      // TODO add your handling code here:
+        }                      // TODO add your handling code here:*/
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
-        kosong();
+     //   kosong();
     }//GEN-LAST:event_btn_clearActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -315,9 +332,13 @@ public class Inputbarang extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void txt_supplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_supplierActionPerformed
+    private void jComboBox_suplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_suplierActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_supplierActionPerformed
+        try {
+            
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jComboBox_suplierActionPerformed
 
   
      private void load_table (){
@@ -347,7 +368,7 @@ public class Inputbarang extends javax.swing.JFrame {
   }
     
   }
-     private void kosong(){
+     /*private void kosong(){
       DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
       txt_id.setText(null);
       txt_nama.setText(null);
@@ -358,7 +379,7 @@ public class Inputbarang extends javax.swing.JFrame {
       txt_supplier.setText(null);
       jtgl.setDateFormatString(null);
       
-     }
+     }*/
     /**
      * @param args the command line arguments
      */
@@ -400,6 +421,7 @@ public class Inputbarang extends javax.swing.JFrame {
     private javax.swing.JButton btn_edit;
     private javax.swing.JButton btn_input;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox_suplier;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -420,7 +442,6 @@ public class Inputbarang extends javax.swing.JFrame {
     private javax.swing.JTextField txt_jumlah;
     private javax.swing.JTextField txt_merek;
     private javax.swing.JTextField txt_nama;
-    private javax.swing.JTextField txt_supplier;
     private javax.swing.JTextField txt_tipe;
     // End of variables declaration//GEN-END:variables
 }
