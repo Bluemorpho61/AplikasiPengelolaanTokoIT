@@ -188,12 +188,12 @@ public class LoginApk extends javax.swing.JFrame {
                 if(txt_username.getText().endsWith(rs.getString("username"))&&txt_password.getText().equals(rs.getString("password"))&&rs.getString("nama_jenispengguna").equals("owner")){
                         JOptionPane.showMessageDialog(null, "ANDA BERHASIL LOGIN SEBAGAI OWNER!!!");
                         this.setVisible(false);
-                        new MenuUtama().setVisible(true);
+                        new MainMenu().setVisible(true);
                   //login sbg karyawan            
                 } else if (txt_username.getText().endsWith(rs.getString("username"))&&txt_password.getText().equals(rs.getString("password"))&&rs.getString("nama_jenispengguna").equals("Karyawan")) {
                     JOptionPane.showMessageDialog(null, "ANDA BERHASIL LOGIN SEBAGAI KARYAWAN!!!");
                     this.setVisible(false);
-                    new AplikasiKasir().setVisible(true);
+                    new kasir().setVisible(true);
                 }
             }else{
                         JOptionPane.showMessageDialog(null, "Username atau Password salah");

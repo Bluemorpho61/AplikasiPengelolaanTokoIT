@@ -245,6 +245,7 @@ public class InputDataSuppl extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_TambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_TambahActionPerformed
@@ -277,7 +278,7 @@ public class InputDataSuppl extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new MenuUtama().setVisible(true);
+        new MainMenu().setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**

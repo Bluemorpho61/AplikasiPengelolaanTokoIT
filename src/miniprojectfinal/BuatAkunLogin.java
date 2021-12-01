@@ -254,6 +254,7 @@ public class BuatAkunLogin extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_TambahAkunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_TambahAkunActionPerformed
@@ -280,7 +281,7 @@ public class BuatAkunLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             this.setVisible(false);
-            new MenuUtama().setVisible(true);
+            new MainMenu().setVisible(true);
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton1ActionPerformed

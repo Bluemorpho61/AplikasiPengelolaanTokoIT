@@ -18,7 +18,7 @@ public class Konek {
         if (koneksi==null) {
             new Driver();
             
-            koneksi=DriverManager.getConnection("jdbc:mysql://localhost:3306/toko_barang_it","root","");
+            koneksi=DriverManager.getConnection("jdbc:mysql://localhost:3306/toko_barang_it_lama","root","");
         }
         return koneksi;
 }

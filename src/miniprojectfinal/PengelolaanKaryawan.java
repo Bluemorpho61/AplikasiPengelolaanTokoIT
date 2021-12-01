@@ -317,6 +317,7 @@ int x=0;
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_TambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_TambahActionPerformed
@@ -370,7 +371,7 @@ int x=0;
     private void jButton_KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_KembaliActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new MenuUtama().setVisible(true);
+        new MainMenu().setVisible(true);
     }//GEN-LAST:event_jButton_KembaliActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
