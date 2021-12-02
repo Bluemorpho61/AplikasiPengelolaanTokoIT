@@ -74,7 +74,7 @@ public class InputBrg extends javax.swing.JFrame {
                 res.getString("supplier"),
                 res.getString("harga"),
                 res.getString("Tgl_masuk"),
-                res.getString("stok"),
+                res.getString("jumlah"),
                 });
             }
         } catch (Exception e) {
@@ -442,7 +442,7 @@ public class InputBrg extends javax.swing.JFrame {
             String stok =jTextField_StockBrg.getText();
             
             
-            String sql="UPDATE tb_barang SET nama='"+nama+"', jenis='"+jenis+"', tipe_model='"+tipe+"', Brand_barang='"+brand+"', supplier='"+supplier+"', harga='"+harga+"', Tgl_masuk='"+tglMasuk.toString()+"', stok='"+stok+"' WHERE id_barang='"+jTextField_IdBarang.getText()+"'";
+            String sql="UPDATE tb_barang SET nama='"+nama+"', jenis='"+jenis+"', tipe_model='"+tipe+"', Brand_barang='"+brand+"', supplier='"+supplier+"', harga='"+harga+"', Tgl_masuk='"+tglMasuk.toString()+"', jumlah='"+stok+"' WHERE id_barang='"+jTextField_IdBarang.getText()+"'";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.PreparedStatement pst=conn.prepareStatement(sql);
             pst.execute();
