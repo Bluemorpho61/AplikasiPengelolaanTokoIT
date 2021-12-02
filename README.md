@@ -6,11 +6,11 @@ Tim pengembang:
 - Firdaus Al Kindi
 - Rendy Ardhitya Kuncoro
 
-**LANGKAH2 UNTUK IKUT BERKONTRIBUSI DALAM PENGEMBANGAN APLIKASI INI **
+**LANGKAH2 UNTUK MENGGUNAKAN/IKUT BERKONTRIBUSI DALAM PENGEMBANGAN APLIKASI INI **
 - Clone git dg cara
 
 ```
 git clone https://github.com/Bluemorpho61/AplikasiPengelolaanTokoIT.git
 ```
-
-- Import file sql "toko_barang_it"
+- Buatlah database melalui phpmyadmin, dan beri nama "toko_barang_it_lama"
+- Import file sql "toko_barang_it_lama"
