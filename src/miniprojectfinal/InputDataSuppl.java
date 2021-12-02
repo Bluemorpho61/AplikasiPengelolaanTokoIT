@@ -261,6 +261,7 @@ public class InputDataSuppl extends javax.swing.JFrame {
             java.sql.PreparedStatement pst=conn.prepareStatement(sql);
             pst.execute();
             this.TabelData();
+            JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton_TambahActionPerformed
