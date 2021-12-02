@@ -251,8 +251,13 @@ public class InputDataSuppl extends javax.swing.JFrame {
     private void jButton_TambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_TambahActionPerformed
         // TODO add your handling code here:
         try {
-            String sql="INSERT INTO tb_supplier values('"+jTextField_IdSupp.getText()+"','"+jTextField_Nama.getText()+"','"+jTextField_Alamat.getText()+"','"+jTextField_NoTelp.getText()+"')";
-            java.sql.Connection conn =(Connection)Config.configDB();
+            String id = jTextField_IdSupp.getText();
+            String nama=jTextField_Nama.getText();
+            String alamat=jTextField_Alamat.getText();
+            String NoTelp=jTextField_NoTelp.getText();
+            
+            String sql="INSERT INTO tb_supplier VALUES('"+id+"','"+nama+"','"+alamat+"','"+NoTelp+"')";
+            java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.PreparedStatement pst=conn.prepareStatement(sql);
             pst.execute();
             this.TabelData();
