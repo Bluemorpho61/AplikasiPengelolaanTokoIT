@@ -15,7 +15,7 @@ git clone https://github.com/Bluemorpho61/AplikasiPengelolaanTokoIT.git
 - Buatlah database melalui phpmyadmin, dan namai database tersebut dg "toko_barang_it_lama"
 - Import file sql "toko_barang_it_lama"
 
-Default admin/onwer login password:
+Default admin/owner login password:
 ```
 username: admin
 password: admin
