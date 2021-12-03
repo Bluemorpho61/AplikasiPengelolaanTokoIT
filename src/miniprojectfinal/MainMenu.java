@@ -37,33 +37,26 @@ public class MainMenu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btn_logout = new javax.swing.JButton();
         Tanggal_Hari_ini = new javax.swing.JLabel();
         Tmb_DbBar = new javax.swing.JButton();
         Tmb_kelolakar = new javax.swing.JButton();
-        DatabaseBrg = new javax.swing.JLabel();
-        KelolaKaryawan = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         InputSupplier = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         TmbahAkun = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(32767, 32767));
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 0));
 
         jDesktopPane1.setBackground(new java.awt.Color(0, 204, 0));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/WhatsApp Image 2021-12-01 at 07.40.05.jpeg"))); // NOI18N
-
-        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel2.setText("Nama Owner");
 
-        btn_logout.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
+        btn_logout.setFont(new java.awt.Font("Arial Unicode MS", 1, 10)); // NOI18N
         btn_logout.setText("Logout");
         btn_logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,11 +65,10 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         Tanggal_Hari_ini.setBackground(new java.awt.Color(255, 255, 255));
-        Tanggal_Hari_ini.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Tanggal_Hari_ini.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Tanggal_Hari_ini.setForeground(new java.awt.Color(255, 255, 255));
         Tanggal_Hari_ini.setText("27 April 2077");
 
-        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(btn_logout, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(Tanggal_Hari_ini, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -86,37 +78,31 @@ public class MainMenu extends javax.swing.JFrame {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_logout)
-                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Tanggal_Hari_ini, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))))
+                        .addComponent(Tanggal_Hari_ini, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(btn_logout)
+                        .addContainerGap())))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_logout))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addComponent(btn_logout)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Tanggal_Hari_ini, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Tanggal_Hari_ini, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         Tmb_DbBar.setBackground(new java.awt.Color(0, 153, 0));
-        Tmb_DbBar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
+        Tmb_DbBar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         Tmb_DbBar.setText("Database Barang");
         Tmb_DbBar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +111,7 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         Tmb_kelolakar.setBackground(new java.awt.Color(0, 153, 0));
-        Tmb_kelolakar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
+        Tmb_kelolakar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         Tmb_kelolakar.setText("Kelola Akun Karyawan");
         Tmb_kelolakar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,14 +119,8 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        DatabaseBrg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/DBarang-removebg-preview.png"))); // NOI18N
-
-        KelolaKaryawan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/WhatsApp_Image_2021-12-01_at_07.40.04-removebg-preview.png"))); // NOI18N
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/truk-removebg-preview.png"))); // NOI18N
-
         InputSupplier.setBackground(new java.awt.Color(0, 153, 0));
-        InputSupplier.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
+        InputSupplier.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         InputSupplier.setText("Input Data Supplier");
         InputSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,10 +128,8 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/1_wVMT-q4de_G4VSQN1S6N1A.png"))); // NOI18N
-
         TmbahAkun.setBackground(new java.awt.Color(0, 153, 0));
-        TmbahAkun.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
+        TmbahAkun.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         TmbahAkun.setText("Tambah Akun Login");
         TmbahAkun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,19 +138,11 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         jButton1.setBackground(new java.awt.Color(0, 153, 0));
-        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
         jButton1.setText("Riwayat Transaksi");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Gambar/history-icon-png-4665 (1).png"))); // NOI18N
-        jLabel5.setText("jLabel5");
-        jLabel5.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                jLabel5ComponentShown(evt);
             }
         });
 
@@ -181,69 +151,38 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(DatabaseBrg))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(Tmb_DbBar)))
-                .addGap(87, 87, 87)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(KelolaKaryawan)
-                    .addComponent(Tmb_kelolakar))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(InputSupplier)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(TmbahAkun))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(92, 92, 92))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(InputSupplier)
+                .addGap(18, 18, 18)
+                .addComponent(Tmb_DbBar)
+                .addGap(29, 29, 29)
+                .addComponent(Tmb_kelolakar)
+                .addGap(18, 18, 18)
+                .addComponent(TmbahAkun)
+                .addGap(27, 27, 27)
+                .addComponent(jButton1)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(245, 245, 245)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(KelolaKaryawan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                            .addComponent(DatabaseBrg)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(254, 254, 254)
-                        .addComponent(jLabel5)))
-                .addGap(53, 53, 53)
+                .addGap(289, 289, 289)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Tmb_kelolakar)
-                    .addComponent(Tmb_DbBar)
                     .addComponent(InputSupplier)
+                    .addComponent(Tmb_DbBar)
+                    .addComponent(Tmb_kelolakar)
                     .addComponent(TmbahAkun)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 800, Short.MAX_VALUE))
+                    .addComponent(jButton1))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,10 +227,6 @@ public class MainMenu extends javax.swing.JFrame {
         new RiwayatTransaksi().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jLabel5ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jLabel5ComponentShown
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel5ComponentShown
-
     /**
      * @param args the command line arguments
      */
@@ -328,9 +263,7 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel DatabaseBrg;
     private javax.swing.JButton InputSupplier;
-    private javax.swing.JLabel KelolaKaryawan;
     private javax.swing.JLabel Tanggal_Hari_ini;
     private javax.swing.JButton Tmb_DbBar;
     private javax.swing.JButton Tmb_kelolakar;
@@ -338,11 +271,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton btn_logout;
     private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -104,31 +104,44 @@ public class kasir extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jComboBox_Type = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jButton_Logout = new javax.swing.JButton();
         Tgl_Sistem = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(166, 228, 180));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_jumlah.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jPanel4.add(txt_jumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 500, 280, 43));
+        jPanel4.add(txt_jumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 210, 40));
 
-        txt_trans.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jPanel4.add(txt_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 280, 43));
+        txt_trans.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txt_trans.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_transActionPerformed(evt);
+            }
+        });
+        jPanel4.add(txt_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 150, 30));
 
         txt_nama.setEditable(false);
-        txt_nama.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jPanel4.add(txt_nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 280, 43));
+        txt_nama.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txt_nama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_namaActionPerformed(evt);
+            }
+        });
+        jPanel4.add(txt_nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 150, 30));
 
         txt_merek.setEditable(false);
-        txt_merek.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jPanel4.add(txt_merek, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 280, 43));
+        txt_merek.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txt_merek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_merekActionPerformed(evt);
+            }
+        });
+        jPanel4.add(txt_merek, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 160, 30));
 
         txt_harga.setEditable(false);
         txt_harga.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -142,28 +155,28 @@ public class kasir extends javax.swing.JFrame {
                 txt_hargaKeyReleased(evt);
             }
         });
-        jPanel4.add(txt_harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 280, 43));
+        jPanel4.add(txt_harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 160, 30));
 
-        btn_id.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        btn_id.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btn_id.setText("Katalog");
         btn_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_idActionPerformed(evt);
             }
         });
-        jPanel4.add(btn_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, 120, 40));
+        jPanel4.add(btn_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 100, 30));
 
         txt_cash.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jPanel4.add(txt_cash, new org.netbeans.lib.awtextra.AbsoluteConstraints(1380, 380, 270, 50));
+        jPanel4.add(txt_cash, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 220, 210, 30));
 
-        btn_simpan.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        btn_simpan.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btn_simpan.setText("Simpan");
         btn_simpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_simpanActionPerformed(evt);
             }
         });
-        jPanel4.add(btn_simpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(1380, 730, -1, 40));
+        jPanel4.add(btn_simpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 420, 100, 30));
 
         txt_kembali.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         txt_kembali.addActionListener(new java.awt.event.ActionListener() {
@@ -171,65 +184,72 @@ public class kasir extends javax.swing.JFrame {
                 txt_kembaliActionPerformed(evt);
             }
         });
-        jPanel4.add(txt_kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(1380, 530, 270, 50));
+        jPanel4.add(txt_kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 310, 210, 30));
 
-        btn_reset.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btn_reset.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn_reset.setText("Clear");
         btn_reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_resetActionPerformed(evt);
             }
         });
-        jPanel4.add(btn_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1530, 730, 120, 40));
+        jPanel4.add(btn_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 420, 90, 30));
 
-        txt_total.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        txt_total.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         txt_total.setForeground(new java.awt.Color(255, 0, 0));
         txt_total.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_totalActionPerformed(evt);
             }
         });
-        jPanel4.add(txt_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(1380, 160, 350, 140));
+        jPanel4.add(txt_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 100, 190, 60));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Jumlah");
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 500, 190, -1));
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 110, -1));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("No Transaksi");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 72, 201, 50));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 72, 90, 50));
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Id Barang");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 183, -1));
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 80, -1));
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Nama_Barang");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 183, 40));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 100, 30));
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Tipe_Barang");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 183, -1));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 110, -1));
 
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Merek_Barang");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 190, -1));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 110, -1));
 
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Harga");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 190, -1));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 90, -1));
 
-        jLabel11.setFont(new java.awt.Font("Verdana", 3, 36)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Verdana", 3, 12)); // NOI18N
         jLabel11.setText("Total Harga");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 60, 260, 70));
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 40, 90, 40));
 
-        jLabel3.setFont(new java.awt.Font("Verdana", 1, 32)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel3.setText("Cash");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1380, 320, 190, 40));
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 180, 60, 30));
 
-        jLabel12.setFont(new java.awt.Font("Verdana", 1, 32)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel12.setText("Kembali");
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1390, 470, -1, -1));
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 280, -1, -1));
 
         jComboBox_idBar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih ID Barang", "I" }));
         jComboBox_idBar.addActionListener(new java.awt.event.ActionListener() {
@@ -237,7 +257,7 @@ public class kasir extends javax.swing.JFrame {
                 jComboBox_idBarActionPerformed(evt);
             }
         });
-        jPanel4.add(jComboBox_idBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 280, 40));
+        jPanel4.add(jComboBox_idBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 200, 30));
 
         jButton1.setText("Panduan penggunaan aplikasi");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -253,25 +273,21 @@ public class kasir extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, 210, 40));
+        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 240, 30));
 
-        jComboBox_Type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Masukkan Tipe Barang", "PC", "Laptop", "Komponen PC", "Aksessoris PC" }));
-        jPanel4.add(jComboBox_Type, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 280, 40));
-
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1950, 1110));
-
-        jLabel1.setFont(new java.awt.Font("Verdana", 3, 60)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cashier");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(813, 25, 339, 69));
+        jComboBox_Type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masukkan Tipe Barang", "PC", "Laptop", "Komponen PC", "Aksessoris PC" }));
+        jComboBox_Type.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_TypeActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jComboBox_Type, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 150, -1));
 
         jPanel3.setBackground(new java.awt.Color(20, 182, 20));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Verdana", 3, 60)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Cashier");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(813, 25, 339, 69));
 
         jButton_Logout.setText("Logout");
         jButton_Logout.addActionListener(new java.awt.event.ActionListener() {
@@ -279,13 +295,51 @@ public class kasir extends javax.swing.JFrame {
                 jButton_LogoutActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 120, 40));
 
-        Tgl_Sistem.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Tgl_Sistem.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Tgl_Sistem.setText("29 April 2069");
-        jPanel3.add(Tgl_Sistem, new org.netbeans.lib.awtextra.AbsoluteConstraints(1600, 50, 260, 50));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1950, 110));
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jButton_Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(507, 507, 507)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Tgl_Sistem, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(Tgl_Sistem, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                    .addGap(26, 26, 26)
+                    .addComponent(jButton_Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 1356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -390,6 +444,22 @@ public class kasir extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txt_namaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_namaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_namaActionPerformed
+
+    private void txt_transActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_transActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_transActionPerformed
+
+    private void jComboBox_TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_TypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_TypeActionPerformed
+
+    private void txt_merekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_merekActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_merekActionPerformed
     
     private void reset(){
       //txt_id.setText("");
@@ -448,7 +518,6 @@ public class kasir extends javax.swing.JFrame {
     private javax.swing.JButton jButton_Logout;
     private javax.swing.JComboBox<String> jComboBox_Type;
     private javax.swing.JComboBox<String> jComboBox_idBar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
