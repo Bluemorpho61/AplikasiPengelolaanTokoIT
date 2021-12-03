@@ -6,7 +6,7 @@ Tim pengembang:
 - Firdaus Al Kindi
 - Rendy Ardhitya Kuncoro
 
-**LANGKAH2 UNTUK MENGGUNAKAN/IKUT BERKONTRIBUSI DALAM PENGEMBANGAN APLIKASI INI **
+**LANGKAH2 UNTUK MENGGUNAKAN / IKUT BERKONTRIBUSI DALAM PENGEMBANGAN APLIKASI INI **
 - Clone git dg cara
 
 ```
@@ -14,3 +14,10 @@ git clone https://github.com/Bluemorpho61/AplikasiPengelolaanTokoIT.git
 ```
 - Buatlah database melalui phpmyadmin, dan namai database tersebut dg "toko_barang_it_lama"
 - Import file sql "toko_barang_it_lama"
+
+Default admin/owner login password:
+```
+username: admin
+password: admin
+```
+
