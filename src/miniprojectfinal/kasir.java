@@ -1,18 +1,22 @@
 package miniprojectfinal;
 
 
+import LiveDatenClock.CurrentDate;
 import com.sun.glass.events.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 import miniprojectfinal.Config;
 import miniprojectfinal.Koneksi.Konek;
+import miniprojectfinal.InputBrg;
 
 public class kasir extends javax.swing.JFrame {
  public StringTokenizer token;
@@ -24,8 +28,13 @@ public class kasir extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Cashier"); 
         updateCombo();
+        setDate();
    }
-
+    private void setDate(){
+        CurrentDate curD=new CurrentDate();
+        Tgl_Sistem.setText(curD.getCurDate());
+    }
+        //Fungsi untuk tombol comboBox utk ID BARANG
     public void updateCombo(){
         try {
             Statement statement=(Statement)Konek.getConnection().createStatement();
@@ -36,6 +45,7 @@ public class kasir extends javax.swing.JFrame {
                 jComboBox_idBar.addItem(res.getString("id_barang"));
                 
             }
+            
         } catch (Exception e) {
         }
     }
@@ -51,6 +61,7 @@ public class kasir extends javax.swing.JFrame {
         while(res.next()){
            this.txt_nama.setText(res.getString("nama"));
            this.txt_harga.setText(res.getString("harga_barang"));
+           this.txt_merek.setText(res.getString("Bramd_barang"));
     }
         
      res.close(); }
@@ -60,7 +71,7 @@ public class kasir extends javax.swing.JFrame {
   }
             
             
-            
+           
 
 
     @SuppressWarnings("unchecked")
@@ -71,7 +82,6 @@ public class kasir extends javax.swing.JFrame {
         txt_jumlah = new javax.swing.JTextField();
         txt_trans = new javax.swing.JTextField();
         txt_nama = new javax.swing.JTextField();
-        txt_tipe = new javax.swing.JTextField();
         txt_merek = new javax.swing.JTextField();
         txt_harga = new javax.swing.JTextField();
         btn_id = new javax.swing.JButton();
@@ -91,10 +101,14 @@ public class kasir extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jComboBox_idBar = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jComboBox_Type = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jButton_Logout = new javax.swing.JButton();
+        Tgl_Sistem = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -108,26 +122,36 @@ public class kasir extends javax.swing.JFrame {
         txt_trans.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jPanel4.add(txt_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 280, 43));
 
+        txt_nama.setEditable(false);
         txt_nama.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jPanel4.add(txt_nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 280, 43));
 
-        txt_tipe.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jPanel4.add(txt_tipe, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 280, 40));
-
+        txt_merek.setEditable(false);
         txt_merek.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jPanel4.add(txt_merek, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 280, 43));
 
+        txt_harga.setEditable(false);
         txt_harga.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txt_harga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_hargaActionPerformed(evt);
+            }
+        });
+        txt_harga.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_hargaKeyReleased(evt);
+            }
+        });
         jPanel4.add(txt_harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 280, 43));
 
         btn_id.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        btn_id.setText("Cari");
+        btn_id.setText("Katalog");
         btn_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_idActionPerformed(evt);
             }
         });
-        jPanel4.add(btn_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, 120, 40));
+        jPanel4.add(btn_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, 120, 40));
 
         txt_cash.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jPanel4.add(txt_cash, new org.netbeans.lib.awtextra.AbsoluteConstraints(1380, 380, 270, 50));
@@ -208,9 +232,33 @@ public class kasir extends javax.swing.JFrame {
         jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1390, 470, -1, -1));
 
         jComboBox_idBar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih ID Barang", "I" }));
+        jComboBox_idBar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_idBarActionPerformed(evt);
+            }
+        });
         jPanel4.add(jComboBox_idBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 280, 40));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1950, 1080));
+        jButton1.setText("Panduan penggunaan aplikasi");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1720, 30, 200, 30));
+
+        jButton2.setText("Kilk disini setelah memilih ID");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, 210, 40));
+
+        jComboBox_Type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Masukkan Tipe Barang", "PC", "Laptop", "Komponen PC", "Aksessoris PC" }));
+        jPanel4.add(jComboBox_Type, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 280, 40));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1950, 1110));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 3, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -233,13 +281,18 @@ public class kasir extends javax.swing.JFrame {
         });
         jPanel3.add(jButton_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 120, 40));
 
+        Tgl_Sistem.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Tgl_Sistem.setText("29 April 2069");
+        jPanel3.add(Tgl_Sistem, new org.netbeans.lib.awtextra.AbsoluteConstraints(1600, 50, 260, 50));
+
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1950, 110));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_totalActionPerformed
-       int total = Integer.parseInt(txt_harga.getText()) * Integer.parseInt(txt_jumlah.getText());
+       
+        int total = Integer.parseInt(txt_harga.getText()) * Integer.parseInt(txt_jumlah.getText());
        txt_total.setText(""+total);
     }//GEN-LAST:event_txt_totalActionPerformed
 
@@ -257,10 +310,17 @@ public class kasir extends javax.swing.JFrame {
         txt_total.setText(ganti);
         
         try{
-        String sql = "INSERT INTO transaksi Values"+"('"+txt_trans.getText()+"','"+jComboBox_idBar.getSelectedItem()+"','"
-                  +txt_nama.getText()+"','"+txt_tipe.getText()+"','"
-                  +txt_merek.getText()+"','"+txt_harga.getText()+"','"
-                  +txt_jumlah.getText()+"','"+txt_total.getText()+"')";
+            String noTrans=txt_trans.getText();
+            String nama=txt_nama.getText();
+            String tipe=jComboBox_Type.getSelectedItem().toString();
+            String merek=txt_merek.getText();
+            String harga=txt_harga.getText();
+            String jumlah=txt_jumlah.getText();
+            String total=txt_total.getText();
+        String sql = "INSERT INTO transaksi Values"+"('"+noTrans+"','"+jComboBox_idBar.getSelectedItem()+"','"
+                  +nama+"','"+tipe+"','"
+                  +merek+"','"+harga+"','"
+                  +jumlah+"','"+total+"')";
         java.sql.Connection conn=(Connection)Config.configDB();
         java.sql.PreparedStatement pst= conn.prepareStatement(sql);
         pst.execute();
@@ -277,6 +337,7 @@ public class kasir extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_resetActionPerformed
 
     private void txt_kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_kembaliActionPerformed
+
         int kembalianjumlah = Integer.parseInt(txt_cash.getText())-Integer.parseInt(txt_total.getText());
         txt_kembali.setText(""+kembalianjumlah);
     }//GEN-LAST:event_txt_kembaliActionPerformed
@@ -286,11 +347,54 @@ public class kasir extends javax.swing.JFrame {
         this.setVisible(false);
         new LoginApk().setVisible(true);
     }//GEN-LAST:event_jButton_LogoutActionPerformed
+
+    private void txt_hargaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_hargaKeyReleased
+        // TODO add your handling code here:
+        /*String harga=txt_harga.getText().replaceAll("\\,", "");
+        double dblHarga=Double.parseDouble(harga);
+        DecimalFormat df=new DecimalFormat("#,###,###");
+        if (dblHarga>999) {
+            txt_harga.setText(df.format(dblHarga));
+        }*/
+    }//GEN-LAST:event_txt_hargaKeyReleased
+
+    private void txt_hargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_hargaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_hargaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox_idBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_idBarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_idBarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        try {
+            String sql="SELECT * FROM tb_barang WHERE id_barang='"+jComboBox_idBar.getSelectedItem()+"'";
+            Connection conn=(Connection)Konek.getConnection();
+            PreparedStatement pst =conn.prepareStatement(sql);
+            ResultSet res=pst.executeQuery();
+            if (res.next()) {
+                txt_harga.setText(res.getString("harga"));
+                txt_nama.setText(res.getString("nama"));
+                txt_merek.setText(res.getString("Brand_barang"));
+                
+            } else {
+                
+                
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     private void reset(){
       //txt_id.setText("");
       txt_nama.setText("");
-      txt_tipe.setText("");
+      jComboBox_Type.setSelectedItem("Silahkan Masukkan Tipe Barang");
       txt_merek.setText("");
       txt_harga.setText("");
       txt_jumlah.setText("");
@@ -335,10 +439,14 @@ public class kasir extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Tgl_Sistem;
     private javax.swing.JButton btn_id;
     private javax.swing.JButton btn_reset;
     private javax.swing.JButton btn_simpan;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton_Logout;
+    private javax.swing.JComboBox<String> jComboBox_Type;
     private javax.swing.JComboBox<String> jComboBox_idBar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -360,7 +468,6 @@ public class kasir extends javax.swing.JFrame {
     private javax.swing.JTextField txt_kembali;
     private javax.swing.JTextField txt_merek;
     private javax.swing.JTextField txt_nama;
-    private javax.swing.JTextField txt_tipe;
     private javax.swing.JTextField txt_total;
     private javax.swing.JTextField txt_trans;
     // End of variables declaration//GEN-END:variables

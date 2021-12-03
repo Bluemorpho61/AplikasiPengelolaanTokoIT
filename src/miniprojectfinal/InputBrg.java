@@ -11,7 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import miniprojectfinal.Koneksi.Konek;
@@ -36,7 +38,7 @@ public class InputBrg extends javax.swing.JFrame {
         DateFormat df=new SimpleDateFormat("yyyy-MM-dd");
         jTextField_IdBarang.setText(null);
         jTextField_NamaBarang.setText(null);
-        jTextField_JnsBarang.setText(null);
+        jComboBox_JnsBar.setSelectedItem("Silahkan masukkan jenis barang");
         jTextField_TipeMDL.setText(null);
         jTextField_BrandBrg.setText(null);
         jComboBox_Supp.setSelectedItem("Silahkan Masukkan Supplier");
@@ -114,7 +116,6 @@ public class InputBrg extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField_NamaBarang = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField_JnsBarang = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextField_TipeMDL = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -130,6 +131,7 @@ public class InputBrg extends javax.swing.JFrame {
         jButton_Tambah = new javax.swing.JButton();
         jButton_Edit = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jComboBox_JnsBar = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton_Hps = new javax.swing.JButton();
@@ -192,6 +194,12 @@ public class InputBrg extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Tipe Model");
 
+        jTextField_TipeMDL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_TipeMDLActionPerformed(evt);
+            }
+        });
+
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Brand Barang");
@@ -205,6 +213,17 @@ public class InputBrg extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Harga");
+
+        jTextField_Harga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_HargaActionPerformed(evt);
+            }
+        });
+        jTextField_Harga.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField_HargaKeyReleased(evt);
+            }
+        });
 
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Tanggal Masuk");
@@ -234,6 +253,8 @@ public class InputBrg extends javax.swing.JFrame {
             }
         });
 
+        jComboBox_JnsBar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan masukkan jenis barang", "PC", "Laptop", "Aksessoris PC", "Komponen PC" }));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -241,26 +262,6 @@ public class InputBrg extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField_IdBarang)
-                            .addComponent(jTextField_NamaBarang)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField_JnsBarang)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField_TipeMDL)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField_BrandBrg)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox_Supp, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField_Harga)
-                            .addComponent(jLabel9)
-                            .addComponent(jDateChooser_TglMask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel10)
-                            .addComponent(jTextField_StockBrg))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -272,7 +273,27 @@ public class InputBrg extends javax.swing.JFrame {
                                 .addComponent(jButton_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                                 .addComponent(jButton_Tambah, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(60, 60, 60))))
+                        .addGap(60, 60, 60))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jComboBox_JnsBar, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField_IdBarang, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField_NamaBarang, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_TipeMDL, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_BrandBrg, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox_Supp, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_Harga, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDateChooser_TglMask, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField_StockBrg, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,9 +314,9 @@ public class InputBrg extends javax.swing.JFrame {
                 .addComponent(jTextField_NamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField_JnsBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(5, 5, 5)
+                .addComponent(jComboBox_JnsBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField_TipeMDL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -374,7 +395,7 @@ public class InputBrg extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(1355, Short.MAX_VALUE)
                 .addComponent(jButton_Hps)
                 .addGap(71, 71, 71))
         );
@@ -396,12 +417,20 @@ public class InputBrg extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            
-        String sql="INSERT INTO tb_barang VALUES('"+jTextField_IdBarang.getText()+
-                "','"+jTextField_NamaBarang.getText()+"','"+jTextField_JnsBarang.getText().toString()+
-                "','"+jTextField_TipeMDL.getText()+"','"+jTextField_BrandBrg.getText()+"','"+jComboBox_Supp.getSelectedItem().toString()+
-                "','"+jTextField_Harga.getText()+"','"+df.format(jDateChooser_TglMask.getDate()).toString()+
-                "','"+jTextField_StockBrg.getText()+"')";
+            String idbar=jTextField_IdBarang.getText();
+            String namaBar=jTextField_NamaBarang.getText();
+            String jnsBar=jComboBox_JnsBar.getSelectedItem().toString();
+            String tipeMdl=jTextField_TipeMDL.getText();
+            String BrandBar=jTextField_BrandBrg.getText();
+            String supplier=jComboBox_Supp.getSelectedItem().toString() ;
+            String harga=jTextField_Harga.getText();
+            String tgl=df.format(jDateChooser_TglMask.getDate()).toString();
+            String stok=jTextField_StockBrg.getText();
+        String sql="INSERT INTO tb_barang VALUES('"+idbar+
+                "','"+namaBar+"','"+jnsBar+
+                "','"+tipeMdl+"','"+BrandBar+"','"+supplier+
+                "','"+harga+"','"+tgl+
+                "','"+stok+"')";
         java.sql.Connection conn=(Connection)Config.configDB();
         java.sql.PreparedStatement pst=conn.prepareStatement(sql);
         pst.execute();
@@ -433,7 +462,7 @@ public class InputBrg extends javax.swing.JFrame {
         try {
             DateFormat df =new SimpleDateFormat("yyyy-MM-dd");
             String nama=jTextField_NamaBarang.getText();
-            String jenis=jTextField_JnsBarang.getText();
+            String jenis=jComboBox_JnsBar.getSelectedItem().toString();
             String tipe=jTextField_TipeMDL.getText();
             String brand=jTextField_BrandBrg.getText();
             String supplier=jComboBox_Supp.getSelectedItem().toString();
@@ -467,15 +496,19 @@ public class InputBrg extends javax.swing.JFrame {
         String jenis=jTable1.getValueAt(row, 2).toString();
         String tipe=jTable1.getValueAt(row, 3).toString();
         String Brand=jTable1.getValueAt(row, 4).toString();
+        String Supplier=jTable1.getValueAt(row, 5).toString();
         String Harga=jTable1.getValueAt(row, 6).toString();
+        //Object tgl=jTable1.getValueAt(row, 7);
         String Stok = jTable1.getValueAt(row, 8).toString();
         
         jTextField_IdBarang.setText(id);
         jTextField_NamaBarang.setText(nama);
-        jTextField_JnsBarang.setText(jenis);
+        jComboBox_JnsBar.setSelectedItem(jenis);
         jTextField_TipeMDL.setText(tipe);
         jTextField_BrandBrg.setText(Brand);
+        jComboBox_Supp.setSelectedItem(Supplier);
         jTextField_Harga.setText(Harga);
+        //jDateChooser_TglMask.setDate((Date) tgl);
         jTextField_StockBrg.setText(Stok);
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -483,6 +516,24 @@ public class InputBrg extends javax.swing.JFrame {
         // TODO add your handling code here:
         reset();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField_TipeMDLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_TipeMDLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_TipeMDLActionPerformed
+
+    private void jTextField_HargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_HargaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_HargaActionPerformed
+
+    private void jTextField_HargaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_HargaKeyReleased
+        // TODO add your handling code here:
+        /*String harga=jTextField_Harga.getText().replaceAll("\\,", "");
+        double dblHarga=Double.parseDouble(harga);
+        DecimalFormat df=new DecimalFormat("#,###,###");
+        if (dblHarga>999) {
+            jTextField_Harga.setText(df.format(dblHarga));
+        }*/
+    }//GEN-LAST:event_jTextField_HargaKeyReleased
 
     /**
      * @param args the command line arguments
@@ -527,6 +578,7 @@ public class InputBrg extends javax.swing.JFrame {
     private javax.swing.JButton jButton_Edit;
     private javax.swing.JButton jButton_Hps;
     private javax.swing.JButton jButton_Tambah;
+    private javax.swing.JComboBox<String> jComboBox_JnsBar;
     private javax.swing.JComboBox<String> jComboBox_Supp;
     private com.toedter.calendar.JDateChooser jDateChooser_TglMask;
     private javax.swing.JLabel jLabel1;
@@ -547,7 +599,6 @@ public class InputBrg extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_BrandBrg;
     private javax.swing.JTextField jTextField_Harga;
     private javax.swing.JTextField jTextField_IdBarang;
-    private javax.swing.JTextField jTextField_JnsBarang;
     private javax.swing.JTextField jTextField_NamaBarang;
     private javax.swing.JTextField jTextField_StockBrg;
     private javax.swing.JTextField jTextField_TipeMDL;

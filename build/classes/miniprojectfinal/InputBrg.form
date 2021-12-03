@@ -26,7 +26,7 @@
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
           <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="1355" max="32767" attributes="0"/>
               <Component id="jButton_Hps" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
           </Group>
@@ -139,28 +139,6 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextField_IdBarang" max="32767" attributes="0"/>
-                                  <Component id="jTextField_NamaBarang" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
-                                  <Component id="jTextField_JnsBarang" max="32767" attributes="0"/>
-                                  <Component id="jLabel5" min="-2" pref="75" max="-2" attributes="0"/>
-                                  <Component id="jTextField_TipeMDL" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel6" min="-2" pref="82" max="-2" attributes="0"/>
-                                  <Component id="jTextField_BrandBrg" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel7" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Component id="jComboBox_Supp" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel8" min="-2" pref="57" max="-2" attributes="0"/>
-                                  <Component id="jTextField_Harga" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jDateChooser_TglMask" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField_StockBrg" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
@@ -176,6 +154,28 @@
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jComboBox_JnsBar" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextField_IdBarang" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextField_NamaBarang" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel3" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
+                                  <Component id="jLabel5" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                                  <Component id="jTextField_TipeMDL" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel6" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                                  <Component id="jTextField_BrandBrg" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel7" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="jComboBox_Supp" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel8" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
+                                  <Component id="jTextField_Harga" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jDateChooser_TglMask" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextField_StockBrg" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -203,9 +203,9 @@
                       <Component id="jTextField_NamaBarang" min="-2" pref="27" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" pref="23" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField_JnsBarang" min="-2" pref="29" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Component id="jComboBox_JnsBar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTextField_TipeMDL" min="-2" pref="30" max="-2" attributes="0"/>
@@ -277,8 +277,6 @@
                 <Property name="text" type="java.lang.String" value="Jenis Barang"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField_JnsBarang">
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -291,6 +289,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField_TipeMDL">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_TipeMDLActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
@@ -340,6 +341,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField_Harga">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_HargaActionPerformed"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField_HargaKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
@@ -387,6 +392,22 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox_JnsBar">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="5">
+                    <StringItem index="0" value="Silahkan masukkan jenis barang"/>
+                    <StringItem index="1" value="PC"/>
+                    <StringItem index="2" value="Laptop"/>
+                    <StringItem index="3" value="Aksessoris PC"/>
+                    <StringItem index="4" value="Komponen PC"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
