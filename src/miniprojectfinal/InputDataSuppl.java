@@ -242,6 +242,7 @@ public class InputDataSuppl extends javax.swing.JFrame {
             this.TabelData();
             JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan");
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
         }
     }//GEN-LAST:event_jButton_TambahActionPerformed
 
