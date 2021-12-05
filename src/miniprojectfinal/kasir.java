@@ -103,7 +103,7 @@ public class kasir extends javax.swing.JFrame {
         jComboBox_idBar = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jComboBox_Type = new javax.swing.JComboBox<>();
+        txt_type = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jButton_Logout = new javax.swing.JButton();
@@ -115,6 +115,11 @@ public class kasir extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_jumlah.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        txt_jumlah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_jumlahActionPerformed(evt);
+            }
+        });
         jPanel4.add(txt_jumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 210, 40));
 
         txt_trans.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -132,7 +137,7 @@ public class kasir extends javax.swing.JFrame {
                 txt_namaActionPerformed(evt);
             }
         });
-        jPanel4.add(txt_nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 150, 30));
+        jPanel4.add(txt_nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 160, 30));
 
         txt_merek.setEditable(false);
         txt_merek.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -251,7 +256,7 @@ public class kasir extends javax.swing.JFrame {
         jLabel12.setText("Kembali");
         jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 280, -1, -1));
 
-        jComboBox_idBar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih ID Barang", "I" }));
+        jComboBox_idBar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih ID Barang" }));
         jComboBox_idBar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_idBarActionPerformed(evt);
@@ -275,13 +280,8 @@ public class kasir extends javax.swing.JFrame {
         });
         jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 240, 30));
 
-        jComboBox_Type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masukkan Tipe Barang", "PC", "Laptop", "Komponen PC", "Aksessoris PC" }));
-        jComboBox_Type.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox_TypeActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jComboBox_Type, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 150, -1));
+        txt_type.setEditable(false);
+        jPanel4.add(txt_type, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 160, 30));
 
         jPanel3.setBackground(new java.awt.Color(20, 182, 20));
 
@@ -351,7 +351,8 @@ public class kasir extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_totalActionPerformed
 
     private void btn_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_idActionPerformed
-      new MenuBarang().setVisible(true);
+      this.setVisible(false);
+        new MenuBarang().setVisible(true);
     }//GEN-LAST:event_btn_idActionPerformed
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
@@ -366,7 +367,7 @@ public class kasir extends javax.swing.JFrame {
         try{
             String noTrans=txt_trans.getText();
             String nama=txt_nama.getText();
-            String tipe=jComboBox_Type.getSelectedItem().toString();
+            String tipe=txt_type.getText();
             String merek=txt_merek.getText();
             String harga=txt_harga.getText();
             String jumlah=txt_jumlah.getText();
@@ -380,7 +381,7 @@ public class kasir extends javax.swing.JFrame {
         pst.execute();
         JOptionPane.showMessageDialog(null, "Penyimpanan Data Berhasil");
     } catch (SQLException ex) {
-        JOptionPane.showMessageDialog(this, "Ada yang belum diisi !!");
+        JOptionPane.showMessageDialog(this, ex);
     
         }
     }//GEN-LAST:event_btn_simpanActionPerformed
@@ -436,7 +437,7 @@ public class kasir extends javax.swing.JFrame {
                 txt_harga.setText(res.getString("harga"));
                 txt_nama.setText(res.getString("nama"));
                 txt_merek.setText(res.getString("Brand_barang"));
-                
+                txt_type.setText(res.getString("jenis"));
             } else {
                 
                 
@@ -453,18 +454,19 @@ public class kasir extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_transActionPerformed
 
-    private void jComboBox_TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_TypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox_TypeActionPerformed
-
     private void txt_merekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_merekActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_merekActionPerformed
+
+    private void txt_jumlahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_jumlahActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txt_jumlahActionPerformed
     
     private void reset(){
       //txt_id.setText("");
       txt_nama.setText("");
-      jComboBox_Type.setSelectedItem("Silahkan Masukkan Tipe Barang");
+      txt_type.setText("");
       txt_merek.setText("");
       txt_harga.setText("");
       txt_jumlah.setText("");
@@ -516,7 +518,6 @@ public class kasir extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton_Logout;
-    private javax.swing.JComboBox<String> jComboBox_Type;
     private javax.swing.JComboBox<String> jComboBox_idBar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -539,5 +540,6 @@ public class kasir extends javax.swing.JFrame {
     private javax.swing.JTextField txt_nama;
     private javax.swing.JTextField txt_total;
     private javax.swing.JTextField txt_trans;
+    private javax.swing.JTextField txt_type;
     // End of variables declaration//GEN-END:variables
 }
