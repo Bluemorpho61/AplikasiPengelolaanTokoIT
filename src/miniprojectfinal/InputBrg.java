@@ -14,6 +14,7 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import miniprojectfinal.Koneksi.Konek;
@@ -184,6 +185,15 @@ public class InputBrg extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("ID Barang");
 
+        jTextField_IdBarang.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField_IdBarangKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField_IdBarangKeyTyped(evt);
+            }
+        });
+
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nama Barang");
@@ -211,6 +221,11 @@ public class InputBrg extends javax.swing.JFrame {
         jLabel7.setText("Supplier");
 
         jComboBox_Supp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masukkan Supplier" }));
+        jComboBox_Supp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_SuppActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
@@ -222,8 +237,14 @@ public class InputBrg extends javax.swing.JFrame {
             }
         });
         jTextField_Harga.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField_HargaKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField_HargaKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField_HargaKeyTyped(evt);
             }
         });
 
@@ -233,6 +254,15 @@ public class InputBrg extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Stok Barang");
+
+        jTextField_StockBrg.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField_StockBrgKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField_StockBrgKeyTyped(evt);
+            }
+        });
 
         jButton_Tambah.setText("Tambah");
         jButton_Tambah.addActionListener(new java.awt.event.ActionListener() {
@@ -512,6 +542,72 @@ public class InputBrg extends javax.swing.JFrame {
     private void jComboBox_JnsBarComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jComboBox_JnsBarComponentResized
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox_JnsBarComponentResized
+
+    private void jComboBox_SuppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_SuppActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_SuppActionPerformed
+
+    private void jTextField_IdBarangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_IdBarangKeyPressed
+        // TODO add your handling code here:
+        /*char nom =evt.getKeyChar();
+        if (Character.isDigit(nom)||Character.isISOControl(nom)||Character.isWhitespace(nom)) {
+           jTextField_IdBarang.setEditable(true);
+        }else{
+            jTextField_IdBarang.setEditable(false);
+            JOptionPane.showMessageDialog(this, "Hanya menerima bisa menerima input angka");
+        }*/
+    }//GEN-LAST:event_jTextField_IdBarangKeyPressed
+
+    private void jTextField_HargaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_HargaKeyPressed
+        // TODO add your handling code here:
+        /*char nom =evt.getKeyChar();
+        if (Character.isDigit(nom)||Character.isISOControl(nom)||Character.isWhitespace(nom)) {
+           jTextField_Harga.setEditable(true);
+        }else{
+            jTextField_Harga.setEditable(false);
+            JOptionPane.showMessageDialog(this, "Hanya menerima bisa menerima input angka");
+        }*/
+    }//GEN-LAST:event_jTextField_HargaKeyPressed
+
+    private void jTextField_StockBrgKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_StockBrgKeyPressed
+        // TODO add your handling code here:
+        /*char nom =evt.getKeyChar();
+        if (Character.isDigit(nom)||Character.isISOControl(nom)) {
+           jTextField_StockBrg.setEditable(true);
+        }else{
+            jTextField_StockBrg.setEditable(false);
+            JOptionPane.showMessageDialog(this, "Hanya menerima bisa menerima input angka");
+            
+        }8*/
+    }//GEN-LAST:event_jTextField_StockBrgKeyPressed
+
+    private void jTextField_StockBrgKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_StockBrgKeyTyped
+        // TODO add your handling code here:
+        char nom=evt.getKeyChar();
+        if(Character.isAlphabetic(nom)){
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Hanya bisa menerima input angka!!!");
+        }
+    }//GEN-LAST:event_jTextField_StockBrgKeyTyped
+
+    private void jTextField_HargaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_HargaKeyTyped
+        // TODO add your handling code here:
+        char nom=evt.getKeyChar();
+        if(Character.isAlphabetic(nom)){
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Hanya bisa menerima input angka!!!");
+        }
+    }//GEN-LAST:event_jTextField_HargaKeyTyped
+
+    private void jTextField_IdBarangKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_IdBarangKeyTyped
+        // TODO add your handling code here:
+        Scanner spasi=new Scanner(System.in);
+        char nom=evt.getKeyChar();
+        if(Character.isAlphabetic(nom)){
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Hanya bisa menerima input angka!!!");
+        }
+    }//GEN-LAST:event_jTextField_IdBarangKeyTyped
 
     /**
      * @param args the command line arguments

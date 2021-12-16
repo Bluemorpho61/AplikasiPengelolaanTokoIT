@@ -112,6 +112,15 @@ public class InputDataSuppl extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("No Telp");
 
+        jTextField_NoTelp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField_NoTelpKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField_NoTelpKeyTyped(evt);
+            }
+        });
+
         jPanel3.setBackground(new java.awt.Color(51, 255, 102));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -280,6 +289,26 @@ public class InputDataSuppl extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField_NoTelpKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_NoTelpKeyPressed
+        // TODO add your handling code here:
+        /*char nom =evt.getKeyChar();
+        if (Character.isDigit(nom)||Character.isISOControl(nom)||Character.isWhitespace(nom)) {
+           jTextField_NoTelp.setEditable(true);
+        }else{
+            jTextField_NoTelp.setEditable(false);
+            JOptionPane.showMessageDialog(this, "Hanya menerima bisa menerima input angka");
+        }*/
+    }//GEN-LAST:event_jTextField_NoTelpKeyPressed
+
+    private void jTextField_NoTelpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_NoTelpKeyTyped
+        // TODO add your handling code here:
+        char nom=evt.getKeyChar();
+        if(Character.isAlphabetic(nom)){
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Hanya bisa menerima input angka!!!");
+        }
+    }//GEN-LAST:event_jTextField_NoTelpKeyTyped
 
     /**
      * @param args the command line arguments

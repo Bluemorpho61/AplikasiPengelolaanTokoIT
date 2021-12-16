@@ -14,6 +14,8 @@ import java.sql.Statement;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
+import javafx.scene.Cursor;
+import javafx.scene.text.Text;
 import miniprojectfinal.Config;
 import miniprojectfinal.Koneksi.Konek;
 import miniprojectfinal.InputBrg;
@@ -118,6 +120,14 @@ public class kasir extends javax.swing.JFrame {
         txt_jumlah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_jumlahActionPerformed(evt);
+            }
+        });
+        txt_jumlah.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_jumlahKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_jumlahKeyTyped(evt);
             }
         });
         jPanel4.add(txt_jumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 210, 40));
@@ -226,7 +236,7 @@ public class kasir extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Nama_Barang");
+        jLabel7.setText("Brand_Barang");
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 100, 30));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -462,6 +472,27 @@ public class kasir extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_txt_jumlahActionPerformed
+
+    private void txt_jumlahKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_jumlahKeyPressed
+        // TODO add your handling code here:
+        /*char nom =evt.getKeyChar();
+        if (Character.isDigit(nom)||Character.isISOControl(nom)||Character.isWhitespace(nom)) {
+           txt_jumlah.setEditable(true);
+        }else{
+            txt_jumlah.setEditable(false);
+            JOptionPane.showMessageDialog(this, "Hanya menerima bisa menerima input angka");
+            
+        }*/
+    }//GEN-LAST:event_txt_jumlahKeyPressed
+
+    private void txt_jumlahKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_jumlahKeyTyped
+        // TODO add your handling code here:
+        char nom=evt.getKeyChar();
+        if(Character.isAlphabetic(nom)){
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Hanya bisa menerima input angka!!!");
+        }
+    }//GEN-LAST:event_txt_jumlahKeyTyped
     
     private void reset(){
       //txt_id.setText("");
